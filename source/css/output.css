@@ -717,13 +717,18 @@ ul {
   color: hsl(0 0% 52% / var(--tw-text-opacity));
 }
 
-.border-link {
+.back-link,
+  .border-link {
   padding-inline: 1rem;
   padding-block: 0.4rem;
   background-color: hsl(209, 23%, 22%);
   color: #fff;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.back-link span {
+  font-size: 1.2rem;
 }
 
 .sr-only{
@@ -876,6 +881,14 @@ ul {
 
 .mt-28{
   margin-top: 7rem;
+}
+
+.mt-5{
+  margin-top: 1.25rem;
+}
+
+.mt-10{
+  margin-top: 2.5rem;
 }
 
 .box-border{
@@ -1545,6 +1558,14 @@ ul {
 
 .gap-40{
   gap: 10rem;
+}
+
+.gap-5{
+  gap: 1.25rem;
+}
+
+.gap-32{
+  gap: 8rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
