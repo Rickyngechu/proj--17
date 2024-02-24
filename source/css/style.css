@@ -40,4 +40,82 @@
 }
 
 @layer components {
+  .ionicon {
+    display: block;
+    fill: #fff;
+    height: 1.4rem;
+    width: 1.4rem;
+    margin-right: 0.8rem;
+  }
+
+  /* Styling the search input field and the options groupfield */
+  .search-field {
+    /* padding-block: 0.8rem; */
+    border-radius: 5px;
+    padding-inline: 1rem;
+    width: 30%;
+  }
+  .search-input {
+    display: inline-block;
+    padding-block: 0.5rem;
+    width: 90%;
+    padding-inline: 0.5rem;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+  .search-input::placeholder {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.2rem;
+  }
+  .select-field {
+    /* width: 25%; */
+    border-radius: 5px;
+    font-size: 1rem;
+    padding-block: 0.8rem;
+    padding-inline: 1rem;
+    color: hsl(0, 0%, 98%);
+  }
+  .search-input:focus,
+  .select-field:focus {
+    outline: none;
+    border: none;
+  }
+  .select-field-cont {
+    display: block;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+
+  .country {
+    border-radius: 5px;
+    @apply bg-Dark-Blue;
+  }
+  .img-cont {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+  }
+  .card-details-cont {
+    @apply pt-5 pb-14 px-5;
+  }
+  .card-head {
+    @apply font-extrabold text-White text-2xl mb-5;
+  }
+  .country-txt,
+  .card-txt {
+    @apply font-semibold text-lg text-Very-Light-Gray;
+  }
+
+  .value {
+    @apply text-Dark-Gray;
+  }
+
+  .border-link {
+    padding-inline: 1rem;
+    padding-block: 0.4rem;
+    background-color: hsl(209, 23%, 22%);
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
 }
