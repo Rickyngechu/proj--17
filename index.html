@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="m-0">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,11 +8,13 @@
     <title>Countries API</title>
   </head>
   <body>
-    <div class="header bg-Dark-Blue">
+    <div class="header bg-White dark:bg-Dark-Blue">
       <div class="cont max-w-[100rem] w-[90%] mx-auto">
         <div class="header-details py-5 flex justify-between items-center">
-          <h1 class="text-White font-bold">Where in the World?</h1>
-          <button class="flex items-center">
+          <h1 class="text-Dark-Blue dark:text-White font-bold">
+            Where in the World?
+          </h1>
+          <button class="flex items-center theme-toggle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="ionicon moon-icon"
@@ -22,14 +24,16 @@
                 d="M264 480A232 232 0 0132 248c0-94 54-178.28 137.61-214.67a16 16 0 0121.06 21.06C181.07 76.43 176 104.66 176 136c0 110.28 89.72 200 200 200 31.34 0 59.57-5.07 81.61-14.67a16 16 0 0121.06 21.06C442.28 426 358 480 264 480z"
               />
             </svg>
-            <span class="text-xl text-White">Dark Mode</span>
+            <span class="text-xl text-Dark-Blue dark:text-White"
+              >Dark Mode</span
+            >
           </button>
         </div>
       </div>
     </div>
-    <main class="bg-Very-Dark-Blue1 py-3 min-h-[100vh]">
+    <main class="dark:bg-Very-Dark-Blue1 bg-Very-Light-Gray py-3 min-h-[100vh]">
       <div class="cont max-w-[100rem] w-[90%] mx-auto">
-        <a href="#" class="back-link mt-14 inline-block">
+        <!--   <a href="#" class="back-link mt-14 inline-block">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="ionicon inline-block"
@@ -44,16 +48,15 @@
               d="M244 400L100 256l144-144M120 256h292"
             />
           </svg>
-          <span>Back</span></a
-        >
-        <div class="full-country mt-28">
+          <span class="text-Dark-Blue dark:text-White">Back</span></a
+        > <div class="full-country mt-28">
           <div class="c-cont grid grid-cols-country-details gap-32">
-            <div class="img bg-Very-Dark-Blue2">
+            <div class="img bg-White dark:bg-Very-Dark-Blue2">
               <img src="source/kenyan.jpg" alt="Kenya" class="w-full" />
             </div>
             <div class="content p-10">
               <h2
-                class="country-header font-extrabold text-White text-4xl mb-8"
+                class="country-header font-extrabold text-4xl mb-8 text-Dark-Blue dark:text-White"
               >
                 Kenya
               </h2>
@@ -107,10 +110,10 @@
               </ul>
             </div>
           </div>
-        </div>
-        <!-- <div class="main-content pt-12">
+        </div> -->
+        <div class="main-content pt-12">
           <form action="#" class="flex justify-between items-center">
-            <div class="input search-field bg-Dark-Blue">
+            <div class="input search-field bg-White dark:bg-Dark-Blue">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="ionicon inline-block"
@@ -123,13 +126,13 @@
               <input
                 type="text"
                 placeholder="Search for a country..."
-                class="search-input bg-Dark-Blue"
+                class="search-input bg-White dark:bg-Dark-Blue"
               />
             </div>
             <select
               name="location"
               id="location"
-              class="select-field bg-Dark-Blue"
+              class="select-field bg-White dark:bg-Dark-Blue"
             >
               <div class="select-field-cont">
                 <option value="" default>Filter by region</option>
@@ -143,7 +146,7 @@
           </form>
 
           <div class="countries-container grid grid-cols-country gap-20 mt-14">
-            <div class="country">
+            <!-- <div class="country">
               <div class="img-cont h-[15rem]">
                 <img
                   src="source/kenyan.jpg"
@@ -298,9 +301,9 @@
                   <span class="value">Nairobi</span>
                 </li>
               </ul>
-            </div>
+            </div> -->
           </div>
-        </div> -->
+        </div>
       </div>
     </main>
   </body>

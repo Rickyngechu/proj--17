@@ -42,10 +42,11 @@
 @layer components {
   .ionicon {
     display: block;
-    fill: #fff;
     height: 1.4rem;
     width: 1.4rem;
     margin-right: 0.8rem;
+    @apply fill-Dark-Blue dark:fill-White;
+    /* fill: hsl(209, 23%, 22%); */
   }
 
   /* Styling the search input field and the options groupfield */
@@ -61,7 +62,7 @@
     width: 90%;
     padding-inline: 0.5rem;
     font-size: 1.4rem;
-    color: #fff;
+    @apply text-Dark-Blue dark:text-White;
   }
   .search-input::placeholder {
     font-family: "Nunito Sans", sans-serif;
@@ -73,7 +74,7 @@
     font-size: 1rem;
     padding-block: 0.8rem;
     padding-inline: 1rem;
-    color: hsl(0, 0%, 98%);
+    @apply text-Dark-Blue dark:text-White;
   }
   .search-input:focus,
   .select-field:focus {
@@ -88,7 +89,8 @@
 
   .country {
     border-radius: 5px;
-    @apply bg-Dark-Blue;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    @apply bg-White dark:bg-Dark-Blue;
   }
   .img-cont {
     border-top-left-radius: 5px;
@@ -99,11 +101,11 @@
     @apply pt-5 pb-14 px-5;
   }
   .card-head {
-    @apply font-extrabold text-White text-2xl mb-5;
+    @apply font-extrabold text-Dark-Blue dark:text-White text-2xl mb-5;
   }
   .country-txt,
   .card-txt {
-    @apply font-semibold text-lg text-Very-Light-Gray;
+    @apply font-semibold text-lg text-Dark-Blue dark:text-Very-Light-Gray;
   }
 
   .value {
@@ -113,10 +115,12 @@
   .border-link {
     padding-inline: 1rem;
     padding-block: 0.4rem;
-    background-color: hsl(209, 23%, 22%);
-    color: #fff;
+    /* background-color: hsl(209, 23%, 22%); */
+    /* color: #fff; */
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    @apply bg-White dark:bg-Very-Dark-Blue1 text-Dark-Blue dark:text-White;
   }
   .back-link span {
     font-size: 1.2rem;
