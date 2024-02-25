@@ -34,23 +34,16 @@ themeCheck();
 
 /////////////////////////////////////////////////////////
 //API HTTP REQUEST
+
 const parentEl = document.querySelector(".countries-container");
-// console.log(data[5]);
-const country = {
-  flag: data[5].flags.png,
-  name: data[5].name,
-  population: data[5].population,
-  region: data[5].region,
-  capital: data[5].capital,
-};
 
-// console.log(country);
+// Rendering all countries
 const renderCountries = function (data) {
-  // This represents the country object
-
+  // Clear out the parent Element
   parentEl.innerHTML = "";
 
   data.forEach(country => {
+    // This represents the country object
     const countryData = {
       flag: country.flags.png,
       name: country.name,
@@ -71,7 +64,7 @@ const renderCountries = function (data) {
               </div>
 
               <ul class="card-details-cont">
-                <li class="card-head"><a href="#">${countryData.name}</a></li>
+                <li class="card-head"><a href="index" class="country-link">${countryData.name}</a></li>
                 <li class="card-txt">
                   <span>Population :</span>
                   <span class="value">${countryData.population}</span>
@@ -90,12 +83,12 @@ const renderCountries = function (data) {
   
   `;
 
-    parentEl.insertAdjacentHTML("afterbegin", markup);
+    document
+      .querySelector(".countries-container")
+      .insertAdjacentHTML("afterbegin", markup);
   });
 };
-
-const splittedData = data.slice(1, 12);
-// renderCountries(splittedData);
+renderCountries(data);
 
 // Handling search results of a given country
 const getCountry = async function (name) {
@@ -104,9 +97,8 @@ const getCountry = async function (name) {
   //   console.log(data);
   return data;
 };
-// getCountry("kenya");
 
-// Rendering the given country
+let countryName;
 
 const renderCountry = async function (val) {
   const dt = await getCountry(`${val}`);
@@ -121,7 +113,6 @@ const renderCountry = async function (val) {
   };
 
   parentEl.innerHTML = "";
-
   const markup = `
   
      <div class="country">
@@ -134,7 +125,7 @@ const renderCountry = async function (val) {
               </div>
 
               <ul class="card-details-cont">
-                <li class="card-head"><a href="#">${countryData.name}</a></li>
+                <li class="card-head"><a href="index.html" class="country-link">${countryData.name}</a></li>
                 <li class="card-txt">
                   <span>Population :</span>
                   <span class="value">${countryData.population}</span>
@@ -150,10 +141,102 @@ const renderCountry = async function (val) {
               </ul>
             </div>
   
-  
   `;
-
   parentEl.insertAdjacentHTML("afterbegin", markup);
+
+  document
+    .querySelector(".country-link")
+    .addEventListener("click", function (e) {
+      // e.preventDefault();
+      countryName = e.target.innerHTML;
+      console.log(countryName);
+    });
+};
+
+// Rendering full country data
+const renderFullcountry = async function (cName) {
+  const finalD = await fetch(`https://restcountries.com/v3.1/name/${cName}`);
+  const [data] = await finalD.json();
+  const dt = data;
+  const fullCountryData = {
+    flag: dt.flags.png,
+    name: dt.name.common,
+    native: dt.name.nativeName.eng,
+    subreg: dt.subregion,
+    toplevelDomain: dt.tld,
+    currency: dt.currencies,
+    languages: dt.languages,
+    population: dt.population,
+    region: dt.region,
+    capital: dt.capital,
+  };
+
+  const markup = `
+   <div class="full-country mt-28">
+          <div class="c-cont grid grid-cols-country-details gap-32">
+            <div class="img bg-White dark:bg-Very-Dark-Blue2">
+              <img src="${fullCountryData.flag}" alt="${fullCountryData.name}" class="w-full" />
+            </div>
+            <div class="content p-10">
+              <h2
+                class="country-header font-extrabold text-4xl mb-8 text-Dark-Blue dark:text-White"
+              >
+                ${fullCountryData.name}
+              </h2>
+              <ul>
+                <div class="ct flex justify-between flex-wrap gap-5">
+                  <div class="items-1">
+                    <li class="country-txt">
+                      <span>Native Name :</span>
+                      <span class="value">   ${fullCountryData.native}</span>
+                    </li>
+                    <li class="country-txt">
+                      <span>Population :</span>
+                      <span class="value">   ${fullCountryData.population}</span>
+                    </li>
+                    <li class="country-txt">
+                      <span>Region :</span> <span class="value">${fullCountryData.region}</span>
+                    </li>
+                    <li class="country-txt" class="country-txt">
+                      <span>Subregion :</span>
+                      <span class="value">${fullCountryData.subreg}</span>
+                    </li>
+                    <li class="country-txt">
+                      <span>Capital :</span> <span class="value">${fullCountryData.capital}</span>
+                    </li>
+                  </div>
+                  <div class="items-2">
+                    <li class="country-txt">
+                      <span>Top level Domain :</span>
+                      <span class="value">${fullCountryData.toplevelDomain}</span>
+                    </li>
+                    <li class="country-txt">
+                      <span>Currencies :</span> <span class="value">${fullCountryData.currency}</span>
+                    </li>
+                    <li class="country-txt">
+                      <span>Languages :</span>
+                      <span class="value">${fullCountryData.languages}</span>
+                    </li>
+                  </div>
+                </div>
+
+                <div class="bd mt-24">
+                  <li class="country-txt">
+                    <span class="inline-block">Border countries :</span>
+                    <span class="inline-block">
+                      <a href="#" class="border-link">Uganda</a>
+                      <a href="#" class="border-link">Tanzania</a>
+                      <a href="#" class="border-link">Sudan</a>
+                    </span>
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+    
+    `;
+  document.querySelector(".ct").insertAdjacentHTML("afterbegin", markup);
 };
 
 const getValue = function () {
@@ -163,9 +246,7 @@ const getValue = function () {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     val = searchValue.value;
-    console.log(searchValue.value);
     searchValue.value = "";
-    console.log("form has been submitted");
 
     renderCountry(val);
   });

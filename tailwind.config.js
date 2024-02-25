@@ -14,7 +14,7 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         // Custom grids
-        country: "repeat(auto-fit, minmax(20rem, 1fr))",
+        country: "repeat(auto-fit, minmax(18rem, 20rem))",
         "country-details": "repeat(auto-fit, minmax(25rem, 1fr))",
       },
     },

@@ -41,7 +41,7 @@
 
 @layer components {
   .ionicon {
-    display: block;
+    display: inline-block;
     height: 1.4rem;
     width: 1.4rem;
     margin-right: 0.8rem;
@@ -54,12 +54,13 @@
     /* padding-block: 0.8rem; */
     border-radius: 5px;
     padding-inline: 1rem;
-    width: 30%;
+    max-width: 30rem;
+    width: 100%;
   }
   .search-input {
     display: inline-block;
     padding-block: 0.5rem;
-    width: 90%;
+    width: 80%;
     padding-inline: 0.5rem;
     font-size: 1.4rem;
     @apply text-Dark-Blue dark:text-White;
