@@ -25,6 +25,7 @@ const themeSwitch = () => {
 };
 
 // Toggling dark mode
+
 const btn = document.querySelector(".theme-toggle");
 btn.addEventListener("click", () => {
   themeSwitch();
@@ -35,14 +36,84 @@ themeCheck();
 /////////////////////////////////////////////////////////
 //API HTTP REQUEST
 
-const parentEl = document.querySelector(".countries-container");
+const options = document.querySelector(".select-field");
+
+const parentEl1 = document.querySelector(".countries-container");
+const parentEl2 = document.querySelector(".ct");
 
 // Rendering all countries
-const renderCountries = function (data) {
-  // Clear out the parent Element
-  parentEl.innerHTML = "";
+if (parentEl1) {
+  const renderCountries = function (data) {
+    console.log(data);
+    // Clear out the parent Element
+    parentEl1.innerHTML = "";
 
-  data.forEach(country => {
+    data.forEach(country => {
+      // This represents the country object
+      const countryData = {
+        flag: country.flags.png,
+        name: country.name,
+        population: country.population,
+        region: country.region,
+        capital: country.capital,
+      };
+
+      const markup = `
+  
+     <div class="country">
+              <div class="img-cont h-[15rem]">
+                <img
+                  src="${countryData.flag}"
+                  alt="${countryData.name}"
+                  class="h-full w-full"
+                />
+              </div>
+
+              <ul class="card-details-cont">
+                <li class="card-head"><a href="" class="country-link">${countryData.name}</a></li>
+                <li class="card-txt">
+                  <span>Population :</span>
+                  <span class="value">${countryData.population}</span>
+                </li>
+                <li class="card-txt">
+                  <span>Region :</span>
+                  <span class="value">${countryData.region}</span>
+                </li>
+                <li class="card-txt">
+                  <span>Capital :</span>
+                  <span class="value">${countryData.capital}</span>
+                </li>
+              </ul>
+            </div>
+  
+  
+  `;
+
+      document
+        .querySelector(".countries-container")
+        .insertAdjacentHTML("afterbegin", markup);
+    });
+  };
+  renderCountries(data);
+}
+
+const country = document.querySelector(".country");
+country.addEventListener("click", function (e) {
+  console.log(e.target);
+  let link;
+  if (e.target.classList.contains("country-link")) {
+    link = e.target;
+  }
+  console.log(link);
+});
+
+// Only display countries based on the selected value
+const updateRenderCountries = function (data) {
+  // Clear out the parent Element
+  document.querySelector(".countries-container").innerHTML = "";
+
+  const filtered = data.filter(ct => ct.region === outpVal);
+  filtered.forEach(country => {
     // This represents the country object
     const countryData = {
       flag: country.flags.png,
@@ -64,7 +135,7 @@ const renderCountries = function (data) {
               </div>
 
               <ul class="card-details-cont">
-                <li class="card-head"><a href="index" class="country-link">${countryData.name}</a></li>
+                <li class="card-head"><a href="" class="country-link">${countryData.name}</a></li>
                 <li class="card-txt">
                   <span>Population :</span>
                   <span class="value">${countryData.population}</span>
@@ -88,7 +159,16 @@ const renderCountries = function (data) {
       .insertAdjacentHTML("afterbegin", markup);
   });
 };
-renderCountries(data);
+
+let outpVal;
+if (options)
+  options.addEventListener("click", function (e) {
+    const selectElement = document.querySelector("#location");
+
+    if (selectElement.value !== "Null") outpVal = selectElement.value;
+
+    updateRenderCountries(data);
+  });
 
 // Handling search results of a given country
 const getCountry = async function (name) {
@@ -101,19 +181,20 @@ const getCountry = async function (name) {
 let countryName;
 
 const renderCountry = async function (val) {
-  const dt = await getCountry(`${val}`);
-  console.log(dt);
+  try {
+    const dt = await getCountry(`${val}`);
+    console.log(dt);
 
-  const countryData = {
-    flag: dt.flags.png,
-    name: dt.name.common,
-    population: dt.population,
-    region: dt.region,
-    capital: dt.capital,
-  };
+    const countryData = {
+      flag: dt.flags.png,
+      name: dt.name.common,
+      population: dt.population,
+      region: dt.region,
+      capital: dt.capital,
+    };
 
-  parentEl.innerHTML = "";
-  const markup = `
+    parentEl1.innerHTML = "";
+    const markup = `
   
      <div class="country">
               <div class="img-cont h-[15rem]">
@@ -125,7 +206,7 @@ const renderCountry = async function (val) {
               </div>
 
               <ul class="card-details-cont">
-                <li class="card-head"><a href="index.html" class="country-link">${countryData.name}</a></li>
+                <li class="card-head"><a href="country.html" class="country-link">${countryData.name}</a></li>
                 <li class="card-txt">
                   <span>Population :</span>
                   <span class="value">${countryData.population}</span>
@@ -142,36 +223,35 @@ const renderCountry = async function (val) {
             </div>
   
   `;
-  parentEl.insertAdjacentHTML("afterbegin", markup);
-
-  document
-    .querySelector(".country-link")
-    .addEventListener("click", function (e) {
-      // e.preventDefault();
-      countryName = e.target.innerHTML;
-      console.log(countryName);
-    });
+    parentEl1.insertAdjacentHTML("afterbegin", markup);
+  } catch (err) {
+    alert(err);
+    console.log(err);
+  }
 };
 
 // Rendering full country data
 const renderFullcountry = async function (cName) {
-  const finalD = await fetch(`https://restcountries.com/v3.1/name/${cName}`);
-  const [data] = await finalD.json();
-  const dt = data;
-  const fullCountryData = {
-    flag: dt.flags.png,
-    name: dt.name.common,
-    native: dt.name.nativeName.eng,
-    subreg: dt.subregion,
-    toplevelDomain: dt.tld,
-    currency: dt.currencies,
-    languages: dt.languages,
-    population: dt.population,
-    region: dt.region,
-    capital: dt.capital,
-  };
+  try {
+    const finalD = await fetch(`https://restcountries.com/v3.1/name/${cName}`);
+    const [data] = await finalD.json();
+    const dt = data;
 
-  const markup = `
+    // parentEl2.innerHTML = "";
+    const fullCountryData = {
+      flag: dt.flags.png,
+      name: dt.name.common,
+      native: dt.name.nativeName.eng,
+      subreg: dt.subregion,
+      toplevelDomain: dt.tld,
+      currency: dt.currencies,
+      languages: dt.languages,
+      population: dt.population,
+      region: dt.region,
+      capital: dt.capital,
+    };
+
+    const markup = `
    <div class="full-country mt-28">
           <div class="c-cont grid grid-cols-country-details gap-32">
             <div class="img bg-White dark:bg-Very-Dark-Blue2">
@@ -236,7 +316,11 @@ const renderFullcountry = async function (cName) {
         </div>
     
     `;
-  document.querySelector(".ct").insertAdjacentHTML("afterbegin", markup);
+    parentEl2.insertAdjacentHTML("afterbegin", markup);
+  } catch (err) {
+    alert(err);
+    console.log(err);
+  }
 };
 
 const getValue = function () {
@@ -251,4 +335,5 @@ const getValue = function () {
     renderCountry(val);
   });
 };
-getValue();
+
+if (parentEl1) getValue();
