@@ -639,6 +639,11 @@ ul {
   width: 100%;
 }
 
+.search-field:focus {
+  outline: none;
+  border: none;
+}
+
 .search-input {
   display: inline-block;
   padding-block: 0.5rem;
@@ -664,26 +669,24 @@ ul {
   font-size: 1.2rem;
 }
 
-.select-field {
-  /* width: 25%; */
-  border-radius: 5px;
-  font-size: 1rem;
-  padding-block: 0.8rem;
-  padding-inline: 1rem;
-  --tw-text-opacity: 1;
-  color: hsl(209 23% 22% / var(--tw-text-opacity));
-}
-
-:is(.dark .select-field){
-  --tw-text-opacity: 1;
-  color: hsl(0 0% 100% / var(--tw-text-opacity));
-}
-
-.search-input:focus,
+/* .select-field {
+    /* width: 25%; 
+    border-radius: 5px;
+    font-size: 1rem;
+    padding-block: 0.8rem;
+    padding-inline: 1rem;
+    @apply text-Dark-Blue dark:text-White;
+  }
+  .search-input:focus,
   .select-field:focus {
-  outline: none;
-  border: none;
-}
+    outline: none;
+    border: none;
+  }
+  .select-field-cont {
+    display: block;
+    margin-top: 1rem;
+    padding: 1rem;
+  } */
 
 .country {
   border-radius: 5px;
@@ -707,7 +710,7 @@ ul {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
   padding-top: 1.25rem;
-  padding-bottom: 3.5rem;
+  padding-bottom: 2rem;
 }
 
 .card-head{
@@ -722,6 +725,18 @@ ul {
 :is(.dark .card-head){
   --tw-text-opacity: 1;
   color: hsl(0 0% 100% / var(--tw-text-opacity));
+}
+
+.imgCountry {
+  /* width: min-content; */
+}
+
+.imgCountry img {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  /* height: 100%; */
 }
 
 .country-txt,
@@ -773,6 +788,50 @@ ul {
 
 .back-link span {
   font-size: 1.2rem;
+}
+
+/* Styling the filtering tab box */
+
+.select-field {
+  position: relative;
+}
+
+.items-cont {
+  display: none;
+  border-radius: 5px;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  width: 100%;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  display: block;
+  z-index: 10;
+}
+
+#drpdown-icon {
+  margin-left: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.items-cont > * {
+  font-size: 1.1rem;
+}
+
+.items-cont li:hover {
+  cursor: pointer;
+}
+
+.drop-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background: orange; */
+  border-radius: 5px;
+  font-size: 1.1rem;
+  padding-block: 0.8rem;
+  padding-inline: 1.2rem;
+  cursor: pointer;
 }
 
 .sr-only{
@@ -830,8 +889,16 @@ ul {
   position: fixed;
 }
 
+.\!absolute{
+  position: absolute !important;
+}
+
 .absolute{
   position: absolute;
+}
+
+.\!relative{
+  position: relative !important;
 }
 
 .relative{
@@ -848,6 +915,10 @@ ul {
 
 .end-1{
   inset-inline-end: 0.25rem;
+}
+
+.end-2{
+  inset-inline-end: 0.5rem;
 }
 
 .isolate{
@@ -904,6 +975,10 @@ ul {
 
 .m-0{
   margin: 0px;
+}
+
+.m-1{
+  margin: 0.25rem;
 }
 
 .mx-auto{
@@ -964,6 +1039,10 @@ ul {
 
 .inline-flex{
   display: inline-flex;
+}
+
+.\!table{
+  display: table !important;
 }
 
 .table{
@@ -1030,6 +1109,14 @@ ul {
   display: none;
 }
 
+.h-1{
+  height: 0.25rem;
+}
+
+.h-\[12rem\]{
+  height: 12rem;
+}
+
 .h-\[15rem\]{
   height: 15rem;
 }
@@ -1040,6 +1127,10 @@ ul {
 
 .min-h-\[100vh\]{
   min-height: 100vh;
+}
+
+.w-\[100\%\]{
+  width: 100%;
 }
 
 .w-\[90\%\]{
@@ -1124,6 +1215,10 @@ ul {
 
 .transform-none{
   transform: none;
+}
+
+.cursor-pointer{
+  cursor: pointer;
 }
 
 .touch-auto{
@@ -1401,11 +1496,7 @@ ul {
 }
 
 .grid-cols-country{
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 20rem));
-}
-
-.grid-cols-country-details{
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 18rem));
 }
 
 .flex-row{
@@ -1592,16 +1683,21 @@ ul {
   justify-items: stretch;
 }
 
-.gap-20{
-  gap: 5rem;
-}
-
-.gap-32{
-  gap: 8rem;
+.gap-3{
+  gap: 0.75rem;
 }
 
 .gap-5{
   gap: 1.25rem;
+}
+
+.gap-x-8{
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+
+.gap-y-14{
+  row-gap: 3.5rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -2169,8 +2265,17 @@ ul {
      object-fit: scale-down;
 }
 
+.p-1{
+  padding: 0.25rem;
+}
+
 .p-10{
   padding: 2.5rem;
+}
+
+.px-4{
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .py-3{
@@ -2663,6 +2768,10 @@ ul {
   forced-color-adjust: none;
 }
 
+.\!\[a-zA-Z\:_\]{
+  a-z-a--z:  !important;
+}
+
 /* Basic presets */
 
 @media (min-width: 640px){
@@ -2752,6 +2861,28 @@ ul {
 @media (min-width: 640px){
   .sm\:underline{
     text-decoration-line: underline;
+  }
+}
+
+@media (min-width: 768px){
+  .md\:mb-5{
+    margin-bottom: 1.25rem;
+  }
+
+  .md\:mr-10{
+    margin-right: 2.5rem;
+  }
+
+  .md\:flex{
+    display: flex;
+  }
+
+  .md\:w-\[50\%\]{
+    width: 50%;
+  }
+
+  .md\:justify-between{
+    justify-content: space-between;
   }
 }
 

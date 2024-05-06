@@ -57,6 +57,10 @@
     max-width: 30rem;
     width: 100%;
   }
+  .search-field:focus {
+    outline: none;
+    border: none;
+  }
   .search-input {
     display: inline-block;
     padding-block: 0.5rem;
@@ -69,8 +73,8 @@
     font-family: "Nunito Sans", sans-serif;
     font-size: 1.2rem;
   }
-  .select-field {
-    /* width: 25%; */
+  /* .select-field {
+    /* width: 25%; 
     border-radius: 5px;
     font-size: 1rem;
     padding-block: 0.8rem;
@@ -86,23 +90,33 @@
     display: block;
     margin-top: 1rem;
     padding: 1rem;
-  }
+  } */
 
   .country {
     border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     @apply bg-White dark:bg-Dark-Blue;
   }
+
   .img-cont {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     overflow: hidden;
   }
   .card-details-cont {
-    @apply pt-5 pb-14 px-5;
+    @apply pt-5 pb-8 px-5;
   }
   .card-head {
     @apply font-extrabold text-Dark-Blue dark:text-White text-2xl mb-5;
+  }
+  .imgCountry {
+    /* width: min-content; */
+  }
+  .imgCountry img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    /* height: 100%; */
   }
   .country-txt,
   .card-txt {
@@ -125,5 +139,49 @@
   }
   .back-link span {
     font-size: 1.2rem;
+  }
+
+  /* Styling the filtering tab box */
+  .select-field {
+    position: relative;
+  }
+  .items-cont {
+    display: none;
+    border-radius: 5px;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    width: 100%;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    display: block;
+    z-index: 10;
+  }
+  #drpdown-icon {
+    margin-left: 1.5rem;
+    transition: all 0.4s ease;
+  }
+  .transform-icon {
+    transform: rotate(180deg);
+  }
+  .hide-select-field {
+    display: none;
+  }
+  .items-cont > * {
+    font-size: 1.1rem;
+  }
+  .items-cont li:hover {
+    cursor: pointer;
+  }
+  .drop-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: orange; */
+    border-radius: 5px;
+    font-size: 1.1rem;
+    padding-block: 0.8rem;
+    padding-inline: 1.2rem;
+    cursor: pointer;
   }
 }

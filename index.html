@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./source/css/output.css" />
-    <script type="module" src="./source/js/script.js"></script>
+    <!-- <script type="module" src="./source/js/script.js"></script> -->
     <title>Countries API</title>
   </head>
   <body>
     <div class="header bg-White dark:bg-Dark-Blue">
-      <div class="cont max-w-[100rem] w-[90%] mx-auto">
+      <div class="cont max-w-[100rem] w-[100%] mx-auto px-4">
         <div class="header-details py-5 flex justify-between items-center">
           <h1 class="text-Dark-Blue dark:text-White font-bold">
             Where in the World?
@@ -31,86 +31,10 @@
         </div>
       </div>
     </div>
-    <main class="dark:bg-Very-Dark-Blue1 bg-Very-Light-Gray py-3 min-h-[100vh]">
-      <div class="cont max-w-[100rem] w-[90%] mx-auto">
-        <!--   <a href="#" class="back-link mt-14 inline-block">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="ionicon inline-block"
-            viewBox="0 0 512 512"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="48"
-              d="M244 400L100 256l144-144M120 256h292"
-            />
-          </svg>
-          <span class="text-Dark-Blue dark:text-White">Back</span></a
-        > <div class="full-country mt-28">
-          <div class="c-cont grid grid-cols-country-details gap-32">
-            <div class="img bg-White dark:bg-Very-Dark-Blue2">
-              <img src="source/kenyan.jpg" alt="Kenya" class="w-full" />
-            </div>
-            <div class="content p-10">
-              <h2
-                class="country-header font-extrabold text-4xl mb-8 text-Dark-Blue dark:text-White"
-              >
-                Kenya
-              </h2>
-              <ul>
-                <div class="ct flex justify-between flex-wrap gap-5">
-                  <div class="items-1">
-                    <li class="country-txt">
-                      <span>Native Name :</span>
-                      <span class="value">Belgie</span>
-                    </li>
-                    <li class="country-txt">
-                      <span>Population :</span>
-                      <span class="value">12,000,000</span>
-                    </li>
-                    <li class="country-txt">
-                      <span>Region :</span> <span class="value">Europe</span>
-                    </li>
-                    <li class="country-txt" class="country-txt">
-                      <span>Subregion :</span>
-                      <span class="value">Western Europe</span>
-                    </li>
-                    <li class="country-txt">
-                      <span>Capital :</span> <span class="value">Brussels</span>
-                    </li>
-                  </div>
-                  <div class="items-2">
-                    <li class="country-txt">
-                      <span>Top level Domain :</span>
-                      <span class="value">.be</span>
-                    </li>
-                    <li class="country-txt">
-                      <span>Currencies :</span> <span class="value">Euro</span>
-                    </li>
-                    <li class="country-txt">
-                      <span>Languages :</span>
-                      <span class="value">Dutch,French,German</span>
-                    </li>
-                  </div>
-                </div>
-
-                <div class="bd mt-24">
-                  <li class="country-txt">
-                    <span class="inline-block">Border countries :</span>
-                    <span class="inline-block">
-                      <a href="#" class="border-link">Uganda</a>
-                      <a href="#" class="border-link">Tanzania</a>
-                      <a href="#" class="border-link">Sudan</a>
-                    </span>
-                  </li>
-                </div>
-              </ul>
-            </div>
-          </div>
-        </div> -->
+    <main
+      class="main-cont dark:bg-Very-Dark-Blue1 bg-Very-Light-Gray py-3 min-h-[100vh]"
+    >
+      <div class="cont max-w-[100rem] w-[100%] mx-auto px-4">
         <div class="main-content pt-12">
           <form
             action="#"
@@ -134,154 +58,44 @@
                 class="search-input bg-White dark:bg-Dark-Blue"
               />
             </div>
-            <select
-              name="location"
-              id="location"
-              class="select-field bg-White dark:bg-Dark-Blue"
-            >
-              <option value="Null" default class="opt opt1">
-                Filter by region
-              </option>
-              <option value="Africa" class="opt opt2">Africa</option>
-              <option value="America" class="opt opt3">America</option>
-              <option value="Asia" class="opt opt4">Asia</option>
-              <option value="Europe" class="opt opt5">Europe</option>
-              <option value="Oceania" class="opt opt6">Oceania</option>
-            </select>
+            <ul name="location" id="location" class="select-field">
+              <a
+                class="drop-btn bg-White dark:bg-Dark-Blue text-Dark-Blue dark:text-White"
+              >
+                <span>Filter by region</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="ionicon"
+                  viewBox="0 0 512 512"
+                  id="drpdown-icon"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="48"
+                    d="M112 184l144 144 144-144"
+                  />
+                </svg>
+              </a>
+              <!-- <li value="Null" default class="opt opt1">Filter by region</li> -->
+              <div
+                class="items-cont bg-White dark:bg-Dark-Blue text-Dark-Blue dark:text-White"
+              >
+                <li value="Africa" class="opt opt2">Africa</li>
+                <li value="America" class="opt opt3">America</li>
+                <li value="Asia" class="opt opt4">Asia</li>
+                <li value="Europe" class="opt opt5">Europe</li>
+                <li value="Oceania" class="opt opt6">Oceania</li>
+              </div>
+            </ul>
           </form>
 
-          <div class="countries-container grid grid-cols-country gap-20 mt-14">
+          <div
+            class="countries-container grid grid-cols-country gap-x-8 gap-y-14 mt-14"
+          >
             <!-- <div class="country">
-              <div class="img-cont h-[15rem]">
-                <img
-                  src="source/kenyan.jpg"
-                  alt="Kenya flag"
-                  class="h-full w-full"
-                />
-              </div>
-
-              <ul class="card-details-cont">
-                <li class="card-head"><a href="#">Kenya</a></li>
-                <li class="card-txt">
-                  <span>Population :</span>
-                  <span class="value">50,000,000</span>
-                </li>
-                <li class="card-txt">
-                  <span>Region :</span>
-                  <span class="value">Africa</span>
-                </li>
-                <li class="card-txt">
-                  <span>Capital :</span>
-                  <span class="value">Nairobi</span>
-                </li>
-              </ul>
-            </div>
-            <div class="country">
-              <div class="img-cont h-[15rem]">
-                <img
-                  src="source/kenyan.jpg"
-                  alt="Kenya flag"
-                  class="h-full w-full"
-                />
-              </div>
-
-              <ul class="card-details-cont">
-                <li class="card-head">
-                  <a href="#">Kenya</a>
-                </li>
-                <li class="card-txt">
-                  <span>Population :</span>
-                  <span class="value">50,000,000</span>
-                </li>
-                <li class="card-txt">
-                  <span>Region :</span> <span class="value">Africa</span>
-                </li>
-                <li class="card-txt">
-                  <span>Capital :</span>
-                  <span class="value">Nairobi</span>
-                </li>
-              </ul>
-            </div>
-            <div class="country">
-              <div class="img-cont h-[15rem]">
-                <img
-                  src="source/kenyan.jpg"
-                  alt="Kenya flag"
-                  class="h-full w-full"
-                />
-              </div>
-
-              <ul class="card-details-cont">
-                <li class="card-head">
-                  <a href="#">Kenya</a>
-                </li>
-                <li class="card-txt">
-                  <span>Population :</span>
-                  <span class="value">50,000,000</span>
-                </li>
-                <li class="card-txt">
-                  <span>Region :</span> <span class="value">Africa</span>
-                </li>
-                <li class="card-txt">
-                  <span>Capital :</span>
-                  <span class="value">Nairobi</span>
-                </li>
-              </ul>
-            </div>
-            <div class="country">
-              <div class="img-cont h-[15rem]">
-                <img
-                  src="source/kenyan.jpg"
-                  alt="Kenya flag"
-                  class="h-full w-full"
-                />
-              </div>
-
-              <ul class="card-details-cont">
-                <li class="card-head">
-                  <a href="#">Kenya</a>
-                </li>
-                <li class="card-txt">
-                  <span>Population :</span>
-                  <span class="value">50,000,000</span>
-                </li>
-                <li class="card-txt">
-                  <span>Region :</span> <span class="value">Africa</span>
-                </li>
-                <li class="card-txt">
-                  <span>Capital :</span>
-                  <span class="value">Nairobi</span>
-                </li>
-              </ul>
-            </div>
-            <div class="country">
-              <div class="img-cont h-[15rem]">
-                <img
-                  src="source/kenyan.jpg"
-                  alt="Kenya flag"
-                  class="h-full w-full"
-                />
-              </div>
-
-              <ul class="card-details-cont">
-                <li class="card-head">
-                  <a href="#">Kenya</a>
-                </li>
-                <li class="card-txt">
-                  <span>Population :</span>
-                  <span class="value">50,000,000</span>
-                </li>
-                <li class="card-txt">
-                  <span>Region :</span> <span class="value">Africa</span>
-                </li>
-                <li class="card-txt">
-                  <span>Capital :</span>
-                  <span class="value">Nairobi</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="country">
               <div class="img-cont h-[15rem]">
                 <img
                   src="source/kenyan.jpg"
@@ -311,5 +125,7 @@
         </div>
       </div>
     </main>
+    <!-- <script type="module" src="/source/js/fetchCountryApi.js"></script> -->
+    <script type="module" src="/source/js/script.js"></script>
   </body>
 </html>

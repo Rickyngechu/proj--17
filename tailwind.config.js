@@ -10,12 +10,13 @@ module.exports = {
       "Dark-Gray": "hsl(0, 0%, 52%)",
       "Very-Light-Gray": "hsl(0, 0%, 98%)",
       White: "hsl(0, 0%, 100%)",
+      orange: "#FF5C18",
     },
     extend: {
       gridTemplateColumns: {
         // Custom grids
-        country: "repeat(auto-fit, minmax(18rem, 20rem))",
-        "country-details": "repeat(auto-fit, minmax(25rem, 1fr))",
+        country: "repeat(auto-fit, minmax(15rem, 18rem))",
+        // "country-details": "repeat(auto-fit, minmax(max-content, 1fr))",
       },
     },
   },
