@@ -4,9 +4,7 @@
   "description": "![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "start": "npx tailwindcss -i ./source/css/style.css -o ./source/css/output.css --watch",
-    "watch": "parcel watch  ./source/js/script.js ",
-    "build": "parcel build ./source/js/script.js"
+    "start": "npx tailwindcss -i ./source/css/style.css -o ./source/css/output.css --watch"
   },
   "author": "Erick ngechu",
   "license": "ISC",
