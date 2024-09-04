@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 
 function CountryPage() {
