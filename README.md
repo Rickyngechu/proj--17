@@ -91,3 +91,5 @@ You may also see any lint errors in the console.
 - React Documentation on - [ReactDocs](https://react.dev/)
 
 - Tailwind css documentation on - [Tailwindcss](https://tailwindcss.com/)
+
+- The official documentation for restcountries API - [RestCountriesApi](https://restcountries.com/)
