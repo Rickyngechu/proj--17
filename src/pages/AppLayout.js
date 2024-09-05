@@ -7,8 +7,8 @@ function Main() {
   const [searchItem, setSearchItem] = useState("");
 
   return (
-    <main className="min-h-[100vh] dark:bg-Very-Dark-Blue  py-10 bg-White">
-      <div className="cont h-12 max-w-7xl w-[90%] mx-auto">
+    <main className="min-h-[100vh] dark:bg-Very-Dark-Blue  py-4 bg-White">
+      <div className="cont py-12 max-w-7xl w-[90%] mx-auto">
         <Navigation
           filterItem={filterItem}
           setFilterItem={setFilterItem}

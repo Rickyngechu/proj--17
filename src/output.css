@@ -457,6 +457,8 @@ video {
 
 html {
   box-sizing: border-box;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 body {
@@ -478,6 +480,34 @@ a {
 
 ul {
   list-style: none;
+}
+
+@media (min-width: 640px) {
+  html{
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  html{
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  html{
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  html{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 }
 
 *, ::before, ::after{
@@ -588,20 +618,16 @@ ul {
   --tw-contain-style:  ;
 }
 
-.absolute{
-  position: absolute;
+.fixed{
+  position: fixed;
 }
 
 .relative{
   position: relative;
 }
 
-.bottom-4{
-  bottom: 1rem;
-}
-
-.left-12{
-  left: 3rem;
+.bottom-0{
+  bottom: 0px;
 }
 
 .left-2\/4{
@@ -693,8 +719,32 @@ ul {
   width: 90%;
 }
 
+.w-auto{
+  width: auto;
+}
+
 .w-full{
   width: 100%;
+}
+
+.w-max{
+  width: max-content;
+}
+
+.w-min{
+  width: min-content;
+}
+
+.min-w-7{
+  min-width: 1.75rem;
+}
+
+.min-w-1{
+  min-width: 0.25rem;
+}
+
+.min-w-5{
+  min-width: 1.25rem;
 }
 
 .max-w-7xl{
@@ -703,6 +753,14 @@ ul {
 
 .max-w-\[48rem\]{
   max-width: 48rem;
+}
+
+.max-w-\[100\%\]{
+  max-width: 100%;
+}
+
+.max-w-\[90\%\]{
+  max-width: 90%;
 }
 
 .border-collapse{
@@ -738,12 +796,12 @@ ul {
   cursor: pointer;
 }
 
-.grid-cols-2{
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.grid-cols-1{
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
-.grid-cols-3{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.grid-cols-2{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-wrap{
@@ -752,6 +810,10 @@ ul {
 
 .items-center{
   align-items: center;
+}
+
+.justify-center{
+  justify-content: center;
 }
 
 .justify-between{
@@ -850,11 +912,6 @@ ul {
   padding-bottom: 0.25rem;
 }
 
-.py-10{
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
 .py-12{
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -865,11 +922,6 @@ ul {
   padding-bottom: 0.5rem;
 }
 
-.py-3{
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
 .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -878,6 +930,10 @@ ul {
 .py-8{
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.pb-4{
+  padding-bottom: 1rem;
 }
 
 .text-2xl{
@@ -931,6 +987,53 @@ ul {
 
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+@media not all and (min-width: 640px){
+  .max-sm\:w-\[90\%\]{
+    width: 90%;
+  }
+
+  .max-sm\:self-start{
+    align-self: flex-start;
+  }
+
+  .max-sm\:px-4{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .max-sm\:pb-14{
+    padding-bottom: 3.5rem;
+  }
+
+  .max-sm\:text-\[12px\]{
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 640px){
+  .sm\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px){
+  .md\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px){
+  .lg\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .dark\:border-transparent:where(.dark, .dark *){

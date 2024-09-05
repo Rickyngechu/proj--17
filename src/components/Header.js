@@ -12,7 +12,7 @@ function Header() {
   return (
     <>
       <header className=" dark:bg-Dark-Blue  bg-White border-b-2  dark:border-transparent">
-        <div className="cont h-12 max-w-7xl w-[90%] mx-auto flex py-8 justify-between items-center">
+        <div className="cont h-12 max-w-7xl w-[90%] mx-auto flex  py-8 justify-between items-center">
           <h1 className="text-xl  dark:text-white text-Very-Dark-Blue1 font-medium">
             Where in the world?
           </h1>

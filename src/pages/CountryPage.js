@@ -69,15 +69,15 @@ function CountryPage() {
           </button>
         </div>
 
-        <div className="grid grid-cols-2 gap-12 mt-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-14 ">
           <div className="">
             <img src={flags.png} alt={"img"} className="w-full h-full" />
           </div>
-          <div className="self-center">
+          <div className="self-center ">
             <h1 className="text-2xl font-extrabold mb-2 dark:text-white text-black">
               {name.common || ""}
             </h1>
-            <div className="flex  gap-4 dark:text-white text-black">
+            <div className="flex  flex-wrap gap-4 dark:text-white text-black">
               <ul>
                 <li>
                   Native Name:
@@ -125,7 +125,7 @@ function CountryPage() {
                 </li>
               </ul>
             </div>
-            <div className="mt-12 flex items-center">
+            <div className="mt-12 flex-wrap  flex items-center">
               <span className="mr-4 dark:text-White text-Very-Dark-Blue1">
                 Border countries:
               </span>

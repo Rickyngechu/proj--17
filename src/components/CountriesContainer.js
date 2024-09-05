@@ -89,7 +89,7 @@ function CountriesCont({ filterItem, searchItem }) {
   if (isLoading) return <Loader />;
   return (
     <>
-      <div className="mt-12  relative  grid grid-cols-3 gap-4 ">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-12 max-sm:pb-14 pb-4">
         {searched.length === 1
           ? searched.map(cdata => (
               <Country cdata={cdata} key={cdata.name.common} />

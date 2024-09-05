@@ -6,26 +6,26 @@ function Pagination({
   onSetItems,
 }) {
   return (
-    <div className="absolute rounded-3xl bg-white dark:bg-Very-Dark-Blue1 py-3 px-6 w-[55%] max-w-[48rem]  dark:text-white text-Very-Dark-Blue1 flex items-center gap-4 bottom-4 left-2/4 -translate-x-[50%] z-10 shadow-2xl dark:shadow-none">
+    <div className="fixed rounded-3xl bg-white dark:bg-Very-Dark-Blue1 py-2 px-6  max-sm:w-[90%] w-[55%] max-w-[48rem]  dark:text-white text-Very-Dark-Blue1 flex flex-wrap  items-center justify-center gap-2 bottom-0 left-2/4 -translate-x-[50%] z-10 shadow-2xl dark:shadow-none">
       <div className="flex items-center gap-2">
         <button
-          className="py-1 px-3  dark:bg-Dark-Blue bg-white rounded-full"
+          className="py-1 px-3  dark:bg-Dark-Blue bg-white rounded-full max-sm:text-[12px]"
           onClick={() => goToPage(currentPage - 1)}
         >
-          👈 Prev
+          👈 PREV
         </button>
         <div className="flex items-center gap-4">
           <b>{currentPage}</b>of<b>{totalPages}</b>
         </div>
         <button
-          className="py-1 px-3  dark:bg-Dark-Blue bg-white rounded-full"
+          className="py-1 px-3  dark:bg-Dark-Blue bg-white rounded-full max-sm:text-[12px]"
           onClick={() => goToPage(currentPage + 1)}
         >
-          Next 👉
+          NEXT 👉
         </button>
       </div>
       <div className="text-black">
-        <span className="mr-4 dark:text-white text-black ">
+        <span className="mr-4 dark:text-white text-black max-sm:text-[12px] ">
           Countries per page?
         </span>
         <select

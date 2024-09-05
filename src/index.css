@@ -22,6 +22,7 @@ FONT SIZE SYSTEM (px)
 
   html {
     box-sizing: border-box;
+    @apply text-base;
   }
 
   body {
@@ -41,6 +42,30 @@ FONT SIZE SYSTEM (px)
   }
   ul {
     list-style: none;
+  }
+
+  @media (min-width: 640px) {
+    html {
+      @apply text-xs;
+    }
+  }
+
+  @media (min-width: 768px) {
+    html {
+      @apply text-xs;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      @apply text-xs;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    html {
+      @apply text-sm;
+    }
   }
 }
 
