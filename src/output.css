@@ -626,16 +626,12 @@ ul {
   position: relative;
 }
 
-.bottom-0{
-  bottom: 0px;
+.bottom-1{
+  bottom: 0.25rem;
 }
 
 .left-2\/4{
   left: 50%;
-}
-
-.bottom-1{
-  bottom: 0.25rem;
 }
 
 .z-10{
@@ -723,28 +719,8 @@ ul {
   width: 90%;
 }
 
-.w-auto{
-  width: auto;
-}
-
 .w-full{
   width: 100%;
-}
-
-.w-max{
-  width: max-content;
-}
-
-.w-min{
-  width: min-content;
-}
-
-.min-w-7{
-  min-width: 1.75rem;
-}
-
-.min-w-1{
-  min-width: 0.25rem;
 }
 
 .min-w-5{
@@ -755,16 +731,12 @@ ul {
   max-width: 80rem;
 }
 
-.max-w-\[48rem\]{
-  max-width: 48rem;
-}
-
 .max-w-\[100\%\]{
   max-width: 100%;
 }
 
-.max-w-\[90\%\]{
-  max-width: 90%;
+.max-w-\[48rem\]{
+  max-width: 48rem;
 }
 
 .border-collapse{
@@ -802,10 +774,6 @@ ul {
 
 .grid-cols-1{
   grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.grid-cols-2{
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-wrap{
@@ -998,15 +966,6 @@ ul {
     width: 90%;
   }
 
-  .max-sm\:self-start{
-    align-self: flex-start;
-  }
-
-  .max-sm\:px-4{
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
   .max-sm\:pb-14{
     padding-bottom: 3.5rem;
   }
@@ -1018,12 +977,6 @@ ul {
 
 @media (min-width: 640px){
   .sm\:grid-cols-2{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 768px){
-  .md\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
