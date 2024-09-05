@@ -1,10 +1,26 @@
 import { useEffect, useState } from "react";
 
 function Header() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    // Check localStorage for user preference
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      return storedTheme === "dark";
+    }
+    // Fallback to system preference if no preference is stored
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
+
   useEffect(
     function () {
-      document.documentElement.classList.toggle("dark");
+      // Add or remove the "dark" class on the root element based on the state
+      if (isDark) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      }
     },
     [isDark]
   );
